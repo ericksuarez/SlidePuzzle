@@ -12,7 +12,7 @@ import slidepuzzle.gui.Inicio;
 
 /**
  *
- * @author erick
+ * @author Erick Suarez Buendia IPN
  */
 public class SlidePuzzle {
 

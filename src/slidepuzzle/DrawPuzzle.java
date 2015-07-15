@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import slidepuzzle.gui.Inicio;
+import static slidepuzzle.gui.Inicio.contenido;
 
 /**
  *
@@ -87,7 +88,6 @@ public class DrawPuzzle implements ActionListener {
         return home;
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -115,11 +115,14 @@ public class DrawPuzzle implements ActionListener {
             System.out.println(icontmp.getIcon());
         }
 
-        Inicio.contenido.removeAll();
-        Inicio.contenido.addTab("Puzzle", drawscenario(fichas));
-        
+        contenido.removeAll();
+        contenido.addTab("Puzzle", drawscenario(fichas));
+
         if (slidePuzzle.ganoPartida(fichas)) {
-            JOptionPane.showMessageDialog(null, "Acaba de ganar la partido.");
+            JOptionPane.showMessageDialog(null, "Acaba de ganar la partida.");
+            contenido.removeAll();
+            SlidePuzzle slidePuzzle = new SlidePuzzle();
+            contenido.addTab("Puzzle", slidePuzzle.initialize());
         }
     }
 
